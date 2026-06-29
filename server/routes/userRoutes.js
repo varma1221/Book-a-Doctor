@@ -1,15 +1,45 @@
 const express = require("express");
+const multer = require("multer");
+const fs = require("fs");
 const {
   registerController,
   loginController,
-  authController
+  authController,
+  docController,
+  getAllDoctorsControllers,
+  appointmentController,
+  getallnotificationController,
+  deleteallnotificationController,
+  getAllUserAppointments,
+  getDocsController
 } = require("../controllers/UserController");
 const authMiddleware = require("../middlewares/AuthMiddleware");
+
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  }
+});
+const upload = multer({ storage: storage });
 
 const router = express.Router();
 
 router.post("/register", registerController);
 router.post("/login", loginController);
 router.post("/getuserdata", authMiddleware, authController);
+router.post("/registerdoc", authMiddleware, docController);
+router.get("/getalldoctorsu", authMiddleware, getAllDoctorsControllers);
+router.post("/getappointment", authMiddleware, upload.single("image"), appointmentController);
+router.post("/getallnotification", authMiddleware, getallnotificationController);
+router.post("/deleteallnotification", authMiddleware, deleteallnotificationController);
+router.get("/getuserappointments", authMiddleware, getAllUserAppointments);
+router.get("/getDocsforuser", authMiddleware, getDocsController);
 
 module.exports = router;
