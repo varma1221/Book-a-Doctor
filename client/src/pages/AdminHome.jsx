@@ -128,7 +128,7 @@ function AdminHome() {
       <Row className="g-0">
         <Col md={3} lg={2} className="sidebar-menu">
           <a href="/adminhome" className="sidebar-brand">
-            MediCareBook
+            MideCareBook
           </a>
           <Nav className="flex-column">
             <Nav.Link

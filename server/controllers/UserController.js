@@ -33,7 +33,7 @@ const loginController = async (req, res) => {
     if (!isMatch) {
       return res.status(200).send({ message: "Invalid Email or Password", success: false });
     }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_KEY, { expiresIn: "1d" });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_KEY || "medicare_default_secret_key_123", { expiresIn: "1d" });
     const userResponse = user.toObject();
     delete userResponse.password;
     res.status(200).send({ message: "Login Success", success: true, token, data: userResponse });
