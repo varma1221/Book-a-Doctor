@@ -14,7 +14,7 @@ function ApplyDoctor({ userId, onComplete }) {
         userID: userId,
         status: "pending"
       };
-      const res = await axios.post("http://localhost:8000/api/user/registerdoc", payload, {
+      const res = await axios.post("http://localhost:5000/api/user/registerdoc", payload, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }

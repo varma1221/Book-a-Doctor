@@ -21,7 +21,7 @@ function AdminHome() {
 
   const getUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/admin/getallusers", {
+      const res = await axios.get("http://localhost:5000/api/admin/getallusers", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -36,7 +36,7 @@ function AdminHome() {
 
   const getDoctors = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/admin/getalldoctors", {
+      const res = await axios.get("http://localhost:5000/api/admin/getalldoctors", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -51,7 +51,7 @@ function AdminHome() {
 
   const getAppointments = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/admin/getallAppointmentsAdmin", {
+      const res = await axios.get("http://localhost:5000/api/admin/getallAppointmentsAdmin", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -74,7 +74,7 @@ function AdminHome() {
   const handleApprove = async (doctorId) => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/admin/getapprove",
+        "http://localhost:5000/api/admin/getapprove",
         { doctorId },
         {
           headers: {
@@ -97,7 +97,7 @@ function AdminHome() {
   const handleReject = async (doctorId) => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/admin/getreject",
+        "http://localhost:5000/api/admin/getreject",
         { doctorId },
         {
           headers: {

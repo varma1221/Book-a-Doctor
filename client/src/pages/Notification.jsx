@@ -20,7 +20,7 @@ function Notification({ onUpdate }) {
   const markAllAsRead = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/user/getallnotification",
+        "http://localhost:5000/api/user/getallnotification",
         {},
         {
           headers: {
@@ -45,7 +45,7 @@ function Notification({ onUpdate }) {
   const deleteAllRead = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/user/deleteallnotification",
+        "http://localhost:5000/api/user/deleteallnotification",
         {},
         {
           headers: {

@@ -35,7 +35,7 @@ function DoctorList({ doctor, userdata, userDoctorId }) {
         formData.append("image", documentFile);
       }
 
-      const res = await axios.post("http://localhost:8000/api/user/getappointment", formData, {
+      const res = await axios.post("http://localhost:5000/api/user/getappointment", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("token")}`

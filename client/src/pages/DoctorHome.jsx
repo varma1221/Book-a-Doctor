@@ -20,7 +20,7 @@ function DoctorHome() {
         const parsedUser = JSON.parse(data);
         setDoctorUser(parsedUser);
 
-        const res = await axios.get("http://localhost:8000/api/admin/getalldoctors", {
+        const res = await axios.get("http://localhost:5000/api/admin/getalldoctors", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
           }
@@ -46,7 +46,7 @@ function DoctorHome() {
 
   const getAppointments = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/doctor/getdoctorappointments", {
+      const res = await axios.get("http://localhost:5000/api/doctor/getdoctorappointments", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -67,7 +67,7 @@ function DoctorHome() {
   const handleStatus = async (appointmentId, status) => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/doctor/handlestatus",
+        "http://localhost:5000/api/doctor/handlestatus",
         { appointmentId, status },
         {
           headers: {
@@ -88,14 +88,14 @@ function DoctorHome() {
   };
 
   const handleDownload = (appointmentId) => {
-    window.open(`http://localhost:8000/api/doctor/getdocumentdownload?appointId=${appointmentId}&token=${localStorage.getItem("token")}`, "_blank");
+    window.open(`http://localhost:5000/api/doctor/getdocumentdownload?appointId=${appointmentId}&token=${localStorage.getItem("token")}`, "_blank");
   };
 
   const handleProfileUpdate = async (values) => {
     try {
       const timings = values.timings.map(t => t.format("HH:mm"));
       const res = await axios.post(
-        "http://localhost:8000/api/doctor/updateprofile",
+        "http://localhost:5000/api/doctor/updateprofile",
         {
           ...values,
           timings

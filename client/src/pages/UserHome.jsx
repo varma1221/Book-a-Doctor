@@ -17,7 +17,7 @@ function UserHome() {
   const getUserData = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/user/getuserdata",
+        "http://localhost:5000/api/user/getuserdata",
         {},
         {
           headers: {
@@ -41,7 +41,7 @@ function UserHome() {
 
   const getApprovedDoctors = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/user/getalldoctorsu", {
+      const res = await axios.get("http://localhost:5000/api/user/getalldoctorsu", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -56,7 +56,7 @@ function UserHome() {
 
   const getUserAppointments = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/user/getuserappointments", {
+      const res = await axios.get("http://localhost:5000/api/user/getuserappointments", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
