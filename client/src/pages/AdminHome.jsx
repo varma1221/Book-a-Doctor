@@ -120,7 +120,7 @@ function AdminHome() {
   const handleLogout = () => {
     localStorage.clear();
     message.success("Logged out successfully");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -128,7 +128,7 @@ function AdminHome() {
       <Row className="g-0">
         <Col md={3} lg={2} className="sidebar-menu">
           <a href="/adminhome" className="sidebar-brand">
-            MideCareBook
+            MediCareBook
           </a>
           <Nav className="flex-column">
             <Nav.Link

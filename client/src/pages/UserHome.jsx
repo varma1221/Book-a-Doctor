@@ -78,7 +78,7 @@ function UserHome() {
   const handleLogout = () => {
     localStorage.clear();
     message.success("Logged out successfully");
-    navigate("/login");
+    navigate("/");
   };
 
   if (!userdata) return null;
@@ -88,7 +88,7 @@ function UserHome() {
       <Row className="g-0">
         <Col md={3} lg={2} className="sidebar-menu">
           <a href="/userhome" className="sidebar-brand">
-            MideCareBook
+            MediCareBook
           </a>
           <Nav className="flex-column">
             <Nav.Link
@@ -127,16 +127,6 @@ function UserHome() {
           <div className="dashboard-header shadow-sm">
             <h4 className="mb-0 fw-bold">Patient Portal</h4>
             <div className="d-flex align-items-center gap-4">
-              <div
-                className="position-relative cursor-pointer"
-                onClick={() => setActiveMenuItem("notifications")}
-                style={{ cursor: "pointer" }}
-              >
-                <span className="fs-4">🔔</span>
-                {userdata.notification?.length > 0 && (
-                  <span className="notification-badge">{userdata.notification.length}</span>
-                )}
-              </div>
               <span className="fw-semibold text-primary">
                 {userdata.isdoctor ? "Dr. " : ""}
                 {userdata.fullName}

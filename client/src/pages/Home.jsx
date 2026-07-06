@@ -9,7 +9,7 @@ function Home() {
       <Navbar bg="white" expand="lg" className="py-3 border-bottom shadow-sm">
         <Container>
           <Navbar.Brand as={Link} to="/" className="fw-bold text-primary fs-3">
-            MideCareBook
+            MediCareBook
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
@@ -51,7 +51,7 @@ function Home() {
               src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
               alt="Medical Consultation"
               className="img-fluid rounded shadow-lg"
-              style={{ maxHeight: "450px", objectFit: "cover", width: "100%" }}
+              style={{ maxWidth: "100%", height: "auto", borderRadius: "12px" }}
             />
           </Col>
         </Row>
@@ -61,7 +61,7 @@ function Home() {
         <Container>
           <Row className="text-center mb-5">
             <Col>
-              <h2 className="fw-bold">Why Choose MideCareBook?</h2>
+              <h2 className="fw-bold">Why Choose MediCareBook?</h2>
               <p className="text-muted">A modern solution for patient-doctor connection.</p>
             </Col>
           </Row>
@@ -93,7 +93,7 @@ function Home() {
 
       <footer className="bg-dark text-white py-4 mt-auto">
         <Container className="text-center">
-          <p className="mb-0">&copy; 2026 MideCareBook. All rights reserved.</p>
+          <p className="mb-0">&copy; 2026 MediCareBook. All rights reserved.</p>
         </Container>
       </footer>
     </div>
