@@ -9,8 +9,8 @@ module.exports = async (req, res, next) => {
         success: false
       });
     }
-    const token = authHeader.split(" ")[1];
-    jwt.verify(token, process.env.JWT_KEY || "medicare_default_secret_key_123", (err, decode) => {
+    const secretKey = process.env.JWT_KEY || process.env.JWT_SECRET || "medicare_default_secret_key_123";
+    jwt.verify(token, secretKey, (err, decode) => {
       if (err) {
         return res.status(200).send({
           message: "Auth failed",

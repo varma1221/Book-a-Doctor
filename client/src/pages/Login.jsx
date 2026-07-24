@@ -40,7 +40,8 @@ function Login() {
       }
     } catch (error) {
       console.error(error);
-      message.error("Something went wrong");
+      const errMsg = error.response?.data?.message || "Login failed. Please check backend connection.";
+      message.error(errMsg);
     }
   };
 

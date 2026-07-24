@@ -33,7 +33,8 @@ function Register() {
       }
     } catch (error) {
       console.error(error);
-      message.error("Something went wrong");
+      const errMsg = error.response?.data?.message || "Registration failed. Please check backend connection.";
+      message.error(errMsg);
     }
   };
 
